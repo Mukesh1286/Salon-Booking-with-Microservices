@@ -25,7 +25,7 @@ public class PaymentController {
             @RequestParam PaymentMethod paymentMethod
             ) throws StripeException, RazorpayException {
         UserDTO user = new UserDTO();
-        user.setFulName("Mukesh Prajapati");
+        user.setFulName("Mukesh");
         user.setEmail("prajapatimukesh020196@gmail.com");
         user.setId(1L);
 

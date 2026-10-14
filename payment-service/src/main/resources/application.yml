@@ -1,0 +1,54 @@
+#spring.application.name=payment-service
+#server.port=5006
+#
+#spring.datasource.url=jdbc:mysql://localhost:3306/payment_servicedb
+#spring.datasource.username=root
+#spring.datasource.password=admin@12345@111
+#
+#spring.jpa.hibernate.ddl-auto=update
+#spring.jpa.show-sql=true
+#spring.jpa.properties.hibernate.format_sql=true
+#
+#
+#razorpay.api.key = "your razorpay api key"
+#razorpay.api.secret= "your razorpay api secret"
+#
+#stripe.api.key = "your razorpay api key"
+##stripe.api.secret= "your razorpay api secret"
+
+
+server:
+  port: 5006
+spring:
+  application:
+    name: payment-service
+  jpa:
+    hibernate:
+      ddl-auto: update
+  datasource:
+    url: jdbc:mysql://localhost:3306/payment_servicedb
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: admin@12345@111
+
+razorpay:
+  api:
+    key: "your_razorpay_api_key"
+    secret: "your_razorpay_api_secret"
+
+stripe:
+  api:
+    key: "your_stripe_secret_key"
+
+
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://localhost:8070/eureka/
+
+spring.jpa.show-sql: true

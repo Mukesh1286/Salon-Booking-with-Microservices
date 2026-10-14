@@ -18,6 +18,7 @@ import com.stripe.model.checkout.Session;
 import com.stripe.param.checkout.SessionCreateParams;
 import lombok.RequiredArgsConstructor;
 import org.json.JSONObject;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
@@ -25,7 +26,9 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class PaymentServiceImpl implements PaymentService {
 
+    @Autowired
     private final PaymentOrderRepository paymentOrderRepository;
+
 
     @Value("${stripe.api.key}")
     private String stripeSecretKey;
