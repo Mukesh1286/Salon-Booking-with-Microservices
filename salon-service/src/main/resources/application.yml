@@ -34,4 +34,5 @@ eureka:
     service-url:
       defaultZone: http://localhost:8070/eureka/
 
+
 spring.jpa.show-sql: true

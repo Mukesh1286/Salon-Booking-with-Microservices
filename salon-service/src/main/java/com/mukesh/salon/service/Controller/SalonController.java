@@ -44,7 +44,7 @@ public class SalonController {
 
     }
 
-    @GetMapping()
+    @GetMapping
     public ResponseEntity <List<SalonDTO>> getSalons() throws Exception {
 
         List<Salon> salons = salonService.getAllSalons();
