@@ -18,23 +18,6 @@ services:
       - prajapatimukesh
 
 
-  userdb:
-    image: mysql
-    container_name: userdb
-    ports:
-      - 3301:3306
-    healthcheck:
-      test: [ "CMD", "mysqladmin" ,"ping", "-h", "localhost" ]
-      timeout: 10s
-      retries: 10
-      interval: 10s
-      start_period: 10s
-    environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: userdb
-    networks:
-      - prajapatimukesh
-
   bookingdb:
       image: mysql
       container_name: bookingdb
