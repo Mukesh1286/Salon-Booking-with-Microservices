@@ -2,7 +2,9 @@ package com.mukesh.user.service.service.impl;
 
 import com.mukesh.user.service.exception.UserException;
 import com.mukesh.user.service.model.User;
+import com.mukesh.user.service.payload.dto.KeycloakUserinfo;
 import com.mukesh.user.service.repository.UserRepository;
+import com.mukesh.user.service.service.KeyclockService;
 import com.mukesh.user.service.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -15,7 +17,7 @@ import java.util.Optional;
 public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;
-
+    private final KeyclockService keyclockService;
     @Override
     public User createUser(User user) {
 
@@ -60,5 +62,12 @@ public class UserServiceImpl implements UserService {
         existingUser.setEmail(user.getEmail());
         existingUser.setRole(user.getRole());
         return userRepository.save(existingUser);
+    }
+
+    @Override
+    public User getUserFromJwtToken(String jwt) throws Exception {
+        KeycloakUserinfo userinfo = keyclockService.fetchUserProfileByJwt(jwt);
+        return userRepository.findByEmail(userinfo.getEmail());
+
     }
 }

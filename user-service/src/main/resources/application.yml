@@ -19,8 +19,10 @@ spring:
   jpa:
     hibernate:
       ddl-auto: update
+      show-sql: true
   datasource:
-    url: jdbc:mysql://localhost:3306/user_servicedb
+#    url: jdbc:mysql://localhost:3306/user_servicedb
+    url: "jdbc:mysql://localhost:3306/user_servicedb?createDatabaseIfNotExist=true"
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
     password: admin@12345@111
@@ -35,4 +37,4 @@ eureka:
     service-url:
       defaultZone: http://localhost:8070/eureka/
 
-spring.jpa.show-sql: true
+#spring.jpa.show-sql: true
